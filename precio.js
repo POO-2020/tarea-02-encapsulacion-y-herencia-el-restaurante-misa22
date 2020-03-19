@@ -4,9 +4,9 @@ export default class Precio {
      * @param {number} valor 
      */
     constructor(valor){
-        this.valor = valor;
+        this._valor = valor;
     }
     getPrecio(){
-        return `$${this.valor}`;
+        return `$${this._valor}`;
     }
 }

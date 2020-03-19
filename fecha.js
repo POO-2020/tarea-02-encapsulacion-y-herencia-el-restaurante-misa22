@@ -6,7 +6,7 @@ export default class Fecha {
      * @param {String} annio Año de la fecha
      */
     constructor(dia, mes, annio) {
-        this.fecha = new Date(annio, mes, dia);
+        this._fecha = new Date(annio, mes, dia);
     }
     formatearMsecs = (dividendo) => Math.trunc((Date.now() - this.fecha) / dividendo);
 
@@ -20,10 +20,10 @@ export default class Fecha {
 
     getFecha = _ => {
         const meses = ['En', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Agto', 'Sept', 'Oct', 'Nov', 'Dic'];
-        return `${this.fecha.getDate()}/${meses[this.fecha.getMonth()]}/${this.fecha.getFullYear()}`;
+        return `${this._fecha.getDate()}/${meses[this._fecha.getMonth()]}/${this._fecha.getFullYear()}`;
     }
     getDiaFecha = _ => {
         const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        return dias[this.fecha.getDay()];
+        return dias[this._fecha.getDay()];
     }
 }
