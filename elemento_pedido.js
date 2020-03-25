@@ -1,20 +1,16 @@
-import Producto from "./producto.js"
-import Precio from "./precio.js";
+import Producto from "./Producto.js";
+
 export default class ElementoPedido {
     /**
-     * @param {string} producto
-     * @param {number} cantidad
+     * 
+     * @param {Producto} producto 
+     * @param {Number} cantidad 
      */
     constructor(producto, cantidad) {
         this._producto = producto;
         this._cantidad = cantidad;
     }
-    getDescripcion() {
-        var variableInutil = this._producto.getDescripcion()
-        var resto = variableInutil.split("$");
-        var precioTemp = resto.pop();
-        var productoSinP = resto.join("$");
-        var cantidadReal = precioTemp * this.cantidad;
-        return (`${this._cantidad} x ${productoSinP}$${cantidadReal}`);
-    }
+    getCantidad = _ => this._cantidad;
+    getCosto = _ => this._cantidad * Number(this._producto.getValor());
+    getDescripcion = _ => `${this._cantidad} x ${this._producto.getDescripcion()}`;
 }
